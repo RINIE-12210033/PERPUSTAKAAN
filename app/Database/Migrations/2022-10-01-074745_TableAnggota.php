@@ -29,7 +29,24 @@ class TableAnggota extends Migration
             ],
             'status_anggota' => [
                 'type'       => 'VARCHAR',
-                'constraint' => '1'
+                'constraint' => '5',
+            ],
+            'gender'  => [ 'type' => 'enum("L","P")',
+            'null'=>true 
+            ],
+
+            'no_telp'  => [
+                'type'   => 'VARCHAR',
+                'constraint' => '16',
+            ],
+            'kota' => [
+                'type' =>'VARCHAR',
+                'constraint' => '60',
+
+            ],
+            'tgl daftar' => [
+                'type' => 'date'
+
             ],
 
         ]);

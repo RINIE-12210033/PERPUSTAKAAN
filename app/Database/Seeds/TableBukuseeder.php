@@ -11,14 +11,16 @@ class TableBukuseeder extends Seeder
         $data = [
             'kode_buku' => '1111',
             'judul_buku'    => 'tutorial masak',
-            'pengarang' => 'sharul basalam',
+            'penulis' => 'sharul basalam',
             'jenis_buku' => 'cetak',
-            'penerbit'  => 'cv.stralala'
+            'penerbit'  => 'cv.stralala',
+            'thn_terbit' => '2019',
+            
         ];
 
         // Simple Queries
         $this->db->query(
-            'INSERT INTO TableBukuseeder (kode_buku, judul_buku, pengarang, jenis_buku, penerbit) VALUES(:kode_buku:, :judul_buku:, :pengarang:, :jenis_buku:, :penerbit:,)',
+            'INSERT INTO TableBukuseeder (kode_buku, judul_buku, pengarang, jenis_buku, penerbit, thn_terbit) VALUES(:kode_buku:, :judul_buku:, :pengarang:, :jenis_buku:, :penerbit:, :thn_terbit:,)',
             $data
         );
 

@@ -19,7 +19,7 @@ class TableBuku extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '30',
             ],
-            'pengarang' => [
+            'penulis' => [
                 'type' => 'VARCHAR',
                 'constraint' => '30',
             ],
@@ -30,6 +30,12 @@ class TableBuku extends Migration
             'penerbit' => [
                 'type' => 'VARCHAR',
                 'constraint' => '30',
+            
+            ],
+            'thn_terbit' =>[
+                'type' => 'year',
+                'constraint' => '4',
+
             ],
 
         ]);
