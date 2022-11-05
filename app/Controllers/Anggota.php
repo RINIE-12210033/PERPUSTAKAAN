@@ -1,14 +1,20 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-namespace App\Controllers;
+class Anggota extends CI_Controller {
 
-use App\Controllers\BaseController;
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('Anggota_model');
+		$this->load->model('Petugas_model');
+		if($this->session->userdata('logged_in') == false){
+			redirect('welcome');
+		}
+	}
 
-class AnggotaController extends BaseController
-{
-    public function index()
-    {$data['title'] = 'Anggota';
-		$data['list'] = $this->AnggotaModel->getList();
+	public function index(){
+		$data['title'] = 'Anggota';
+		$data['list'] = $this->Anggota_model->getList();
 		$data['primary_view'] = 'anggota/anggota_view';
 		$data['total'] = $this->Anggota_model->getCount();
 		$this->load->view('template_view', $data);
@@ -19,7 +25,7 @@ class AnggotaController extends BaseController
 
 		//GET : Detail data
 		$id = $this->input->get('idtf');
-		$data['row'] = $this->AnggotaModel->getDetail($id);
+		$data['row'] = $this->Anggota_model->getDetail($id);
 		//CHECK : Data Availability
 		if($this->Anggota_model->checkAvailability($id) == true){
 			$data['primary_view'] = 'anggota/detail_anggota_view';
@@ -124,7 +130,3 @@ class AnggotaController extends BaseController
 
 /* End of file Anggota.php */
 /* Location: ./application/controllers/Anggota.php */
-
-        //
-    
-
